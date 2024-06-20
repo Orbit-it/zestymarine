@@ -1,0 +1,149 @@
+{% load static %}
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  var navLinks = document.querySelectorAll('#nav-links a');
+  var currentPage = window.location.pathname;
+
+  navLinks.forEach(function(link) {
+    var href = link.getAttribute('href');
+    if (href.startsWith('#')) {
+      if (currentPage === '/services/') {
+        // Do nothing, already on the services page
+      } else if (currentPage === '/' || currentPage === '') {
+        link.setAttribute('href', 'services/' + href);
+      } else if (currentPage === '/boutique/'){
+        link.setAttributeNS ('href', 'services/')
+      }
+    }
+  });
+});
+</script>
+
+<script
+  type="text/javascript"
+  src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"
+></script>
+
+<script
+  type="text/javascript"
+  src="{% static 'vendor/animsition/js/animsition.min.js' %}"
+></script>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"
+></script>
+
+<script
+  type="text/javascript"
+  src="{% static 'vendor/select2/select2.min.js' %}"
+></script>
+<script type="text/javascript">
+  $(".selection-1").select2({
+    minimumResultsForSearch: 20,
+    dropdownParent: $("#dropDownSelect1")
+  });
+</script>
+
+<script
+  type="text/javascript"
+  src="{% static 'vendor/slick/slick.min.js' %}"
+></script>
+<script type="text/javascript" src="{% static 'js/slick-custom.js' %}"></script>
+
+<script
+  type="text/javascript"
+  src="{% static 'vendor/countdowntime/countdowntime.js' %}"
+></script>
+
+<script
+  type="text/javascript"
+  src="{% static 'vendor/lightbox2/js/lightbox.min.js' %}"
+></script>
+<script crossorigin src="{% static 'js/react.development.js' %}"></script>
+<script crossorigin src="{% static 'js/react-dom.development.js' %}"></script>
+
+<script
+  type="text/javascript"
+  src="{% static 'vendor/sweetalert/sweetalert.min.js' %}"
+></script>
+<script type="text/javascript">
+  $(".block2-btn-addcart").each(function() {
+    var nameProduct = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".block2-name")
+      .html();
+    $(this).on("click", function() {
+      swal(nameProduct, "is added to cart !", "success");
+    });
+  });
+
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text(recipient)
+  modal.find('.modal-body #object').val(recipient)
+
+  $("#okval").click( function () {
+    $("#statusSuccessModal").modal('hide');
+  }) 
+
+
+  $('#envoyer').click( function () {
+    nom_complet = $('#name').val()
+    tel = $('#tel').val();
+    email = $('#email').val();
+    pays = $('#country').val();
+    object = $('object').val();
+    msg = $('#message-text').val();
+    if (nom_complet == ""){
+      alert('Veuiller entrer votre nom');
+    }else if (tel == "" && email == ""){
+      alert('Veuillez renseigner votre email et/ou votre numéro de Téléphone');
+    }else {
+      console.log("Boutton clicked" + nom_complet);
+      $("#exampleModal").modal('hide');
+      sendToServer(nom_complet, tel, email, pays, object, msg);
+      $("#statusSuccessModal").modal('show');
+    }
+    
+  });  
+    
+});
+
+function sendToServer(name, email, tel, pays, object, msg){
+			console.log(name);
+			
+			$.ajax({
+				url:"demande_devis",
+				type:"POST",
+				data:{name:nom_complet, email:email, tel:tel, pays:pays, objet:object, msg:msg },
+			})
+			.done(function(response){
+				console.log(response)
+			})
+			.fail(function(){
+				console.log("Erreur du server");
+			})
+		};
+
+    
+
+
+</script>
+
+
+<script src="{% static 'js/main.js' %}"></script>

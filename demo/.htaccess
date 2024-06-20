@@ -1,0 +1,13 @@
+<IfModule mod_proxy.c>
+    ProxyRequests Off
+    ProxyPreserveHost On
+
+    <Proxy *>
+        Order deny,allow
+        Allow from all
+    </Proxy>
+
+    # Redirige le trafic HTTP vers votre application Django en cours d'exécution sur le port 8000
+    ProxyPass / http://127.0.0.1:8000/
+    ProxyPassReverse / http://127.0.0.1:8000/
+</IfModule>

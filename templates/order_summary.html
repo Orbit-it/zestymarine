@@ -1,0 +1,64 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<style>
+  .circle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: rgb(143, 123, 7);
+  animation: move-the-circle 1s infinite;
+  transform-origin: center center;
+}
+
+/**
+@for $num from 1 through 8 {
+  .circle:nth-child(#{$num}) {
+    left: ($num - 1) * 30px;
+    animation-delay: $num * .1s;
+  }
+}  **/
+
+@keyframes move-the-circle {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(0, 50px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+</style>
+
+<div class="item-slick1 item2-slick1" style="background-image:url('{% static 'images/sh.jpg' %}')">
+  <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-150">
+    <div class="col-lg-12">
+      <h1 style="font-family: rigel star; color:aliceblue; text-align: center;">Bientôt notre Boutique en ligne !</h1>
+            
+      <table class="table t-center">
+    
+        <tbody>
+          <tr>
+
+            <td><div class="circle"></div></td>
+            <td><div class="circle"></div></td>
+            <td><div class="circle"></div></td>
+            <td><div class="circle"></div></td>
+            <td><div class="circle"></div></td>
+            <td><div class="circle"></div></td>
+            <td><div class="circle"></div></td>
+           
+          </tr>
+       
+        </tbody>
+      
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load category_template_tags %}
+{% block content %}
+<style type="text/css">
+	.selection-2{
+	display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da !important;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+	}
+</style>
+
+	<!-- Title Page -->
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(/media/{{ category_image }});">
+		<h2 class="l-text2 t-center" style="color:#fff;">
+			{{ category_title }}
+		</h2>
+		
+	</section>
+
+
+		<section class="py-3 py-md-5 py-xl-8">
+		<div class="container">
+			<p class="m-text13 t-center" style="color: #495057;">
+				{{ category_description }}
+				
+			</p>
+
+		{% if category_id == 2 %}	
+	  		
+		<div class="container overflow-hidden">
+		  <div class="row gy-4 gy-lg-0">
+	
+			<div class="col-12 col-lg-6">
+			  <article>
+				<div class="card border-0">
+				  <img class="card-img-top img-fluid m-0" loading="lazy" src="{% static 'images/int.jpg' %}" alt="Our Vision">
+				  <div class="card-body border bg-white p-4">
+					<div class="entry-header mb-3">
+					  <h2 class="card-title entry-title h4 mb-0">
+						<a class="link-dark text-decoration-none" href="#!">Nettoyage et entretien intérieur</a>
+					  </h2>
+					</div>
+					<p class="card-text entry-summary text-secondary mb-3">
+						Offrez à l'intérieur de votre bateau un nettoyage et un entretien professionnels pour maintenir son allure luxueuse et son confort optimal. Notre équipe expérimentée s'occupe de tout, du dépoussiérage minutieux au nettoyage des surfaces délicates, en passant par l'entretien des textiles et des cuirs. Profitez d'un espace intérieur impeccable et accueillant à chaque sortie en mer grâce à notre service de qualité supérieure.
+					
+					</p>
+					<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Nettoyage et Entretien Interieur">Reserver</button>
+				  </div>
+				</div>
+			  </article>
+			</div>
+	
+			<div class="col-12 col-lg-6">
+			  <article>
+				<div class="card border-0">
+				  <img class="card-img-top img-fluid m-0" loading="lazy" src="{% static 'images/ext.jpg' %}" alt="Our Approach">
+				  <div class="card-body border bg-white p-4">
+					<div class="entry-header mb-3">
+					  <h2 class="card-title entry-title h4 mb-0">
+						<a class="link-dark text-decoration-none" href="#!">Nettoyage et entretien extérieur</a>
+					  </h2>
+					</div>
+					<p class="card-text entry-summary text-secondary mb-3">
+						Assurez la longévité et la beauté de l'extérieur de votre bateau avec notre service de nettoyage et entretien spécialisé. Nous proposons des traitements complets pour la coque, le pont, et toutes les surfaces extérieures, en utilisant des produits respectueux de l'environnement et des techniques efficaces. Que ce soit pour un lavage en profondeur, un polissage ou un traitement antirouille, nous veillons à ce que votre bateau reste en parfait état, prêt pour toutes vos aventures nautiques.
+					</p>
+					<button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Nettoyage et Entretien Extérieur">Reserver</button>
+				  </div>
+				</div>
+			  </article>
+			</div>
+	
+		  </div>
+		</div>
+
+
+		{% else %}
+
+		<div class="container overflow-hidden">
+			<div class="row gy-4 gy-lg-0">
+	  
+			  <div class="col-12 col-lg-6">
+				<article>
+				  <div class="card border-0">
+					<img class="card-img-top img-fluid m-0" loading="lazy" src="{% static 'images/rsv.jpg' %}" alt="Our Vision">
+					<div class="card-body border bg-white p-4">
+					  <div class="entry-header mb-3">
+						<h2 class="card-title entry-title h4 mb-0">
+						  <a class="link-dark text-decoration-none" href="#!">Gestion des Réservations</a>
+						</h2>
+					  </div>
+					  <p class="card-text entry-summary text-secondary mb-3">
+						Simplifiez vos escales avec notre service de gestion des réservations. Nous nous chargeons de toutes vos réservations de marinas et ports d'attache, vous assurant une place sécurisée à chaque étape de votre voyage. De plus, nous coordonnons vos réservations de restaurants, événements et excursions pour que vous puissiez profiter pleinement de chaque destination sans le moindre souci logistique. Profitez d’une navigation sereine et d’escales parfaitement organisées grâce à notre expertise.
+					  </p>
+					  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Réservation Marina">Reserver</button>
+					</div>
+				  </div>
+				</article>
+			  </div>
+	  
+			
+	  
+			  <div class="col-12 col-lg-6">
+				  <article>
+					<div class="card border-0">
+					  <img class="card-img-top img-fluid m-0" loading="lazy" src="{% static 'images/vtc.jpg' %}" alt="Our Vision">
+					  <div class="card-body border bg-white p-4">
+						<div class="entry-header mb-3">
+						  <h2 class="card-title entry-title h4 mb-0">
+							<a class="link-dark text-decoration-none" href="#!">Services de Transport</a>
+						  </h2>
+						</div>
+						<p class="card-text entry-summary text-secondary mb-3">
+							Naviguez sans tracas grâce à notre service de transport premium. Nous organisons vos transferts en limousine, taxi ou hélicoptère, assurant des déplacements confortables et ponctuels. Besoin de mobilité à terre? Nous proposons également la location de véhicules ou de scooters pour que vous puissiez explorer chaque destination en toute liberté. Avec notre service de transport, chaque aspect de votre voyage est pris en charge avec soin et précision.
+						</p>
+					  <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Service de Transport">Reserver</button>
+					  </div>
+					</div>
+				  </article>
+				</div>
+			</div>
+		  </div>
+
+		{% endif %}
+
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				  <form>
+					<div class="form-group">
+					  <label for="recipient-name" class="col-form-label">Objet:</label>
+					  <input type="text" class="form-control" id="recipient-name">
+					</div>
+					<div class="form-group">
+					  <label for="message-text" class="col-form-label">Message:</label>
+					  <textarea class="form-control" id="message-text"></textarea>
+					</div>
+				  </form>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+				  <button type="button" class="btn btn-primary">Envoyer</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+	  </section>
+
+	
+	  
+
+	{% endblock content %}

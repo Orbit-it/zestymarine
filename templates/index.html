@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load category_template_tags %}
+{% load slide_template_tags %}
+{% block content %}
+<style>
+	/*[ Block2 ]
+///////////////////////////////////////////////////////////
+*/
+.block2-labelpromotion::before,
+.block2-labelsale::before,
+.block2-labelnew::before 
+{
+  z-index: 100;
+  font-family: Montserrat-Regular;
+  font-size: 12px;
+  color: rgb(16, 91, 177);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 22px;
+  border-radius: 11px;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+.block2-labelsale::before {
+  background-color: white;
+  color: #000;
+  content: 'Sale';
+}
+
+.block2-labelnew::before {
+  background-color: #007bff;
+  content: 'New';
+}
+
+.block2-labelpromotion::before{
+	background-color: #000;
+	content: 'Promotion';
+	width: 70px;
+  }
+
+  .btn-dark {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+.btn-outline-dark {
+    color: #000;
+    border-color: #000;
+}
+
+.bullet-points p {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .bullet-points p::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 40px;
+            line-height: 0.5em;
+            color: #877c02; /* Color of the bullet point, can be adjusted */
+        }
+
+
+</style>
+
+	<!-- Slide1 -->
+	<section class="slide1">
+		<div class="wrap-slick1">
+			<div class="slick1">
+
+				{% slides %}
+
+			</div>
+		</div>
+	</section>
+
+		   <!--Qui somme nous -->
+	  <section class="py-3 py-md-5">
+		<div class="container">
+		  <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+			<div class="col-12 col-lg-6 col-xl-5">
+			  <img class="img-fluid rounded" loading="lazy" src="{% static 'images/a.jpg' %}" alt="About 1">
+			</div>
+			<div class="col-12 col-lg-6 col-xl-7">
+			  <div class="row justify-content-xl-center">
+				<div class="col-12 col-xl-11">
+				  <h2 class="mb-3 text-secondary">Qui sommes nous ?</h2>
+				  <p class="card-text entry-summary text-secondary mb-3">
+					Fondée en 2021, ZESTY MARINE, est spécialisée dans la conciergerie de bateau. Située stratégiquement à Bizerte, le port de départ idéal pour explorer les côtes tunisiennes et méditerranéennes, ZESTY MARINE profite d'une localisation privilégiée pour offrir des services de conciergerie efficaces et réactifs. Nous sommes à votre écoute pour répondre à tous vos besoins.</p>
+				
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>  
+
+	  <!--Contact -->
+
+	  <section class="text-center">
+
+		<div class="col-lg-12">
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.8467816219218!2d9.876123874234036!3d37.27506024079087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12e31e49c4dd2685%3A0xa740779958e820e2!2sBizerte%20Marina!5e0!3m2!1sen!2stn!4v1718387446645!5m2!1sen!2stn" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			
+		</div>
+
+	  </section>
+
+
+	  <!-- Presentation des services additionnels -->
+	 
+
+
+		<section class="py-3 py-md-5 py-xl-8">
+
+			<div class="container">
+			<div class="row">
+				<div class="col-12 col-md-10 col-lg-8">
+				<h2 class="display-5 mb-4 text-secondary">Nos services additionnels</h2>
+				</div>
+			</div>
+			</div>
+		
+			<div class="container overflow-hidden row col-12">
+
+				<div class="col-lg-4">
+				<article>
+					<div class="card border-0">
+					<img class="card-img-top img-fluid m-0" loading="lazy" src="{% static 'images/event.jpeg' %}" alt="Evenementiel">
+					<div class="card-body border bg-white p-4">
+						<div class="entry-header mb-3">
+						<h2 class="card-title entry-title h4 mb-0">
+							<a class="link-dark text-decoration-none" href="#!">Événementiel</a>
+						</h2>
+						</div>
+						<button class="btn btn-outline-dark" data-toggle="collapse" data-target="#evenement">Plus ...</button>
+						<p class="collapse card-text entry-summary text-secondary mb-3" id="evenement">
+							Faites de votre prochain événement à bord de votre bateau une expérience inoubliable avec nos services événementiels de premier ordre. Que vous organisiez une fête privée, un mariage en mer, ou une réception d'affaires exclusive, notre équipe de professionnels dévoués s'occupe de chaque détail. De la conception à l'exécution, nous travaillons en étroite collaboration avec vous pour créer des événements uniques et personnalisés qui impressionneront vos invités et laisseront des souvenirs impérissables. Confiez-nous l'organisation de vos événements nautiques et profitez pleinement de chaque instant.
+						</p>
+						<button type="button" class="btn btn-outline-primary">Devis</button>
+					</div>
+					</div>
+				</article>
+				</div>
+
+				<div class="col-lg-4">
+				<article>
+					<div class="card border-0">
+					<img class="card-img-top img-fluid m-0" loading="lazy" src="{% static 'images/Interior.jpeg' %}" alt="Our Approach">
+					<div class="card-body border bg-white p-4">
+						<div class="entry-header mb-3">
+						<h2 class="card-title entry-title h4 mb-0">
+							<a class="link-dark text-decoration-none" href="#!">Décoration interieure</a>
+						</h2>
+						</div>
+
+						<button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#decoration">
+							Plus ...
+						</button>
+						<p class="collapse card-text entry-summary text-secondary mb-3" id="decoration">
+							Transformez l'intérieur de votre bateau avec notre service de décoration intérieure sur mesure. Que vous souhaitiez moderniser le salon, ajouter une touche d'élégance à la cabine principale ou créer un espace de détente luxueux, notre équipe de designers experts est là pour réaliser vos rêves. Nous comprenons l'importance de combiner esthétique et fonctionnalité pour créer des espaces qui reflètent parfaitement votre style et vos besoins. Faites de votre bateau un véritable havre de paix grâce à notre savoir-faire en décoration intérieure.
+						</p>
+						<button type="button" class="btn btn-outline-primary">Devis</button>
+						</div>
+
+						
+					</div>
+				</div>
+
+				<div class="col-lg-4">
+					<article>
+					<div class="card border-0">
+						<img class="card-img-top img-fluid m-0" loading="lazy" src="{% static 'images/b.jpg' %}" alt="Our Vision">
+						<div class="card-body border bg-white p-4">
+						<div class="entry-header mb-3">
+							<h2 class="card-title entry-title h4 mb-0">
+							<a class="link-dark text-decoration-none" href="#!">Refit de vos bateaux</a>
+							</h2>
+						</div>
+						<button class="btn btn-outline-dark" type="button" data-toggle="collapse" data-target="#refit">
+							Plus ...
+						</button>
+						<p class="collapse card-text entry-summary text-secondary mb-3" id="refit">
+							Redonnez vie à votre bateau avec notre service de refit haut de gamme. Que vous souhaitiez moderniser l'intérieur, améliorer les performances techniques, ou simplement rafraîchir l'apparence de votre navire, notre équipe d'experts est prête à intervenir. Nous utilisons des matériaux de qualité supérieure et des techniques de pointe pour garantir que chaque projet de refit est exécuté à la perfection. Faites confiance à notre expertise pour transformer votre bateau en un véritable chef-d'œuvre flottant, prêt à naviguer vers de nouvelles aventures.
+						</p>
+						<button type="button" class="btn btn-outline-primary">Devis</button>
+						</div>
+					</div>
+					</article>
+				</div>
+
+			</div>
+			
+		</section>
+
+ 
+
+ 
+
+
+
+	{% endblock content %}
+
+
+	
