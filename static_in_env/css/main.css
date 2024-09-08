@@ -79,6 +79,10 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   font-family: Poppins-Black;
   src: url('../fonts/poppins/Poppins-Black.ttf'); 
 }
+@font-face {
+  font-family: RigelStar;
+  src: url('../fonts/rigel-star/Rigelstar.ttf');
+}
 
 /*[ RESTYLE TAG ]
 ///////////////////////////////////////////////////////////
@@ -507,14 +511,14 @@ iframe {
 ///////////////////////////////////////////////////////////
 */
 .header1 {
-  height: 125px;
+  height: 80px;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.fixed-header {height: 110px;}
+.fixed-header {height: 80px;}
 
 
 /*[ Header Desktop ]
@@ -607,7 +611,7 @@ iframe {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  height: 65px;
+  height: 90px;
   background-color: white;
   justify-content: center;
   align-items: center;
@@ -619,7 +623,7 @@ iframe {
 }
 
 .fixed-header .wrap_header {
-  height: 65px;
+  height: 0px;
 }
 
 
@@ -982,7 +986,7 @@ li.sale-noti > a {
 }
 
 .logo-mobile img {
-  max-height: 27px;
+  max-height: 50px;
 }
 
 /*[ btn show menu ]
@@ -1179,7 +1183,7 @@ li.sale-noti > a {
 .fixed-header2 {
   z-index: 1300;
   position: fixed;
-  height: 65px;
+  height: 15px;
   left: 0;
   top: -70px;
   visibility: hidden;

@@ -69,10 +69,25 @@
             color: black;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 500px) {
             .cardtop {
+				position: relative;
+				top: 10%; 
                 width: 90%; /* Réduire la largeur sur les petits écrans */
-                margin: 10% auto; /* Ajuster la marge */
+                margin: 15% auto; /* Ajuster la marge */
+            }
+            
+            .cardtop-title {
+                font-size: 20px; /* Réduire la taille de la police pour les petits écrans */
+            }
+        }
+
+		@media (min-width: 500px) and (max-width: 750px) {
+            .cardtop {
+				position: relative;
+				top: 10%; 
+                width: 90%; /* Réduire la largeur sur les petits écrans */
+                margin: 15% auto; /* Ajuster la marge */
             }
             
             .cardtop-title {
@@ -121,7 +136,18 @@
 						<div class="card-body t-center mt-5">
 							<h5 class="card-title entry-title">NETTOYAGE ET ENTRETIEN BATEAUX</h5>
 							<p class="card-text" style="color: black;">
-								Le bateau propre est la clé de votre bien-être de votre sérénité à bord. Chez ZESTY MARINE nous prenons soin de l’entretenir tout en respectant l’environnement marin et en utilisant, dans la mesure du possible, uniquement les produits éco-responsables.
+								Un bateau propre est la clé de votre bien-être à bord. Chez ZESTY MARINE nous prenons soin de l’entretenir tout en respectant l’environnement marin et en utilisant, dans la mesure du possible, uniquement les produits éco-responsables.							
+								<p style="color: black; text-align: left;">Nous assurons le nettoyage:</p>
+								<div class="bullet-points t-left" style="color: black;">
+									<p style="color: black;">intérieur et extérieur</p>
+									<p style="color: black;">avant et/ou après les sorties en mer</p>
+									<p style="color: black;">avant et après la mise en hivernage</p>
+									<p style="color: black;">pour préparer le bateau à la vente</p>
+									<p style="color: black;">pour préparer les bateaux en sortie de chantier pour livraison clients</p>
+									<p style="color: black;">contrat de nettoyage régulier pendant hivernage</p>
+									<p style="color: black;">entretien du teck avec produits professionnels</p>
+									<p style="color: black;">carénage</p>
+								</div>
 							</p>
 							<button type="button" class="btn btn-outline-primary t-center" data-toggle="modal" data-target="#exampleModal" data-whatever="Nettotage et Entretien">Demander un devis</button>
 						</div>
@@ -138,6 +164,10 @@
 							<h5 class="card-title entry-title">3M Covering</h5>
 							<p class="card-text" style="color: black; text-align: justify;">
 								Nous vous proposons de changer la couleur de votre bateau sans refaire de peinture et de personnaliser vos coques avec des logos ou des créations graphiques.
+								<div class="bullet-points t-left" style="color: black;">
+									<p style="color: black;">Changer la couleur de votre bateau sans refaire de peinture</p>
+									<p style="color: black;">Personnalisation, logos, création graphique</p>
+								</div>
 							</p>
 							<div style="align-items: center;">
 								<button style="align-items: center;" type="button" class="btn btn-outline-primary center" data-toggle="modal" data-target="#exampleModal" data-whatever="AVITAILLEMENT" >Demander un devis</button>
