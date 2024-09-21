@@ -81,52 +81,56 @@
                 font-size: 20px; /* Réduire la taille de la police pour les petits écrans */
             }
         }
+		.bg-dark-transparent {
+		background-color: rgba(0, 0, 0, 0.7); /* Fond noir transparent */
+		border-radius: 5px;
+	   }
+	   #exampleModal {
+		background-color: rgba(0, 0, 0, 0.7); /* Fond noir transparent */
+		border-radius: 10px;
+	   }
 
-		@media (min-width: 500px) and (max-width: 750px) {
-            .cardtop {
-				position: relative;
-				top: 10%; 
-                width: 90%; /* Réduire la largeur sur les petits écrans */
-                margin: 15% auto; /* Ajuster la marge */
-            }
-            
-            .cardtop-title {
-                font-size: 20px; /* Réduire la taille de la police pour les petits écrans */
-            }
-        }
+
+
+		
 
 </style>
-<div class="row"> 
-	<!-- Title Page -->
-	<div class="item-slick1 p-t-60 p-b-100" style="background-image: url(/static/images/serv.jpg); width: 60%;">
 
-		<div class="cardtop">
-			<div class="cardtop-body" style="margin-top: 5%;">
-				<h5 class="cardtop-title">SERVICES</h5>
-	
-				<p class="cardtop-text t-center">
-					Dans ce monde où chaque minute est précieuse, nous vous offrons notre assistance pour simplifier la gestion de vos obligations quotidiennes. Notre expertise et notre excellence en matière de conciergerie nautique assurent des résultats qui répondent à vos attentes. Libérez vous des tâches les plus fastidieuses et retrouvez le contrôle total sur votre emploi du temps.
-				</p>
-			</div>
-	
+<section class="bg-image d-block d-md-none" style="background-image: url(/static/images/serv.jpg); height: 100vh; background-size: cover; background-position: center;">
+	<div class="container h-100">
+	  <div class="row h-100 align-items-center">
+		<div class="bg-dark-transparent p-2 rounded">
+		  <p class="display-4 text-white text-center" style="font-family: RigelStar; font-size: 5vw;">Nos Services</p>
+		  <p class="lead text-white text-center">Dans ce monde où chaque minute est précieuse, nous vous offrons notre assistance pour simplifier la gestion de vos obligations quotidiennes. Notre expertise et notre excellence en matière de conciergerie nautique assurent des résultats qui répondent à vos attentes. Libérez vous des tâches les plus fastidieuses et retrouvez le contrôle total sur votre emploi du temps.</p>
 		</div>
+	  </div>
 	</div>
+  </section>
 
-</div>
 
 
 	<!-- Content page -->
 	<section class="py-3 py-md-5 py-xl-8">
-		<div class="container">
-		  <div class="row">
-			<div class="col-12 col-md-10 col-lg-8">
-			  <h2 class="display-5 mb-4">Nos services</h2>
+		
+		
+			<div class="item-slick1 p-t-60 p-b-100 d-none d-md-block" style="background-image: url(/static/images/serv.jpg); width: 60%;">
+		
+				<div class="cardtop">
+					<div class="cardtop-body" style="margin: 2%;">
+						<h5 class="cardtop-title">SERVICES</h5>
+			
+						<p class="cardtop-text t-center">
+							Dans ce monde où chaque minute est précieuse, nous vous offrons notre assistance pour simplifier la gestion de vos obligations quotidiennes. Notre expertise et notre excellence en matière de conciergerie nautique assurent des résultats qui répondent à vos attentes. Libérez vous des tâches les plus fastidieuses et retrouvez le contrôle total sur votre emploi du temps.
+						</p>
+					</div>
+			
+				</div>
 			</div>
-		  </div>
-		</div>
+		
+	
 
 
-		<div class="container mt-1" id="nettoyage">
+		<div class="container mt-1 d-none d-md-block" id="nettoyage">
 			<div class="card">
 				<div class="row no-gutters">
 					<div class="col-md-6">
@@ -156,7 +160,7 @@
 			</div>
 		</div>
 		
-		<div class="container mt-1" id="3mcovering">
+		<div class="container mt-1 d-none d-md-block" id="3mcovering">
 			<div class="card">
 				<div class="row no-gutters">
 					<div class="col-md-6">
@@ -182,7 +186,7 @@
 		</div>
 
 
-		<div class="container mt-1" id="veillehyvernale">
+		<div class="container mt-1 d-none d-md-block" id="veillehyvernale">
 			<div class="card">
 				<div class="row no-gutters">
 					<div class="col-md-6">
@@ -209,7 +213,7 @@
 		</div>
 
 
-		<div class="container mt-1" id="lustrage">
+		<div class="container mt-1 d-none d-md-block" id="lustrage">
 			<div class="card">
 				<div class="row no-gutters">
 					<div class="col-md-6">
@@ -236,9 +240,86 @@
 			</div>
 		</div>
 
+		<!--For Mobile Device-------------------------------------------------------------------------------------------------------->
+
+		<section class="bg-image d-block d-md-none mb-2" style="background-image: url(/static/images/ent.jpg); height: 80vh; background-size: cover; background-position: center;">
+			<div class="container h-100">
+			  <div class="row h-100 align-items-center">
+				<div class="bg-dark-transparent p-2 rounded">
+				  <h4 class="display-4 text-white text-center" style="font-family: RigelStar; font-size: 5vw;">Nettoyage & Entretien</h4>
+				
+				<div class="bullet-points t-left" style="color: black;">
+					<p  class="text-white">intérieur et extérieur</p>
+					<p  class="text-white">avant et/ou après les sorties en mer</p>
+					<p  class="text-white">avant et après la mise en hivernage</p>
+					<p  class="text-white">pour préparer le bateau à la vente</p>
+					<p  class="text-white">pour préparer les bateaux en sortie de chantier pour livraison clients</p>
+					<p  class="text-white">contrat de nettoyage régulier pendant hivernage</p>
+					<p  class="text-white">entretien du teck avec produits professionnels</p>
+					<p  class="text-white">carénage</p>
+				</div>
+				<button type="button" class="btn btn-outline-primary t-center" data-toggle="modal" data-target="#exampleModal" data-whatever="Nettoyage & Entretien" >Demander un devis</button>
+			  </div>
+			</div>
+		</section>
+
+
+		<section class="bg-image d-block d-md-none mb-2" style="background-image: url(/static/images/3mcovering.png); height: 80vh; background-size: cover; background-position: center;">
+			<div class="container h-100">
+			  <div class="row h-100 align-items-center">
+				<div class="bg-dark-transparent p-2 rounded">
+				  <h4 class="display-4 text-white text-center" style="font-family: RigelStar; font-size: 5vw;">3M Covering</h4>
+				  <p class="text-white text-center">Nous vous proposons de changer la couleur de votre bateau sans refaire de peinture et de personnaliser vos coques avec des logos ou des créations graphiques.</p>
+				<div class="bullet-points t-left" style="color: black;">
+					<p  class="text-white">Changer la couleur de votre bateau sans refaire de peinture</p>
+					<p  class="text-white">Personnalisation, logos, création graphique</p>
+				</div>
+				<button type="button" class="btn btn-outline-primary t-center" data-toggle="modal" data-target="#exampleModal" data-whatever="3M Covering" >Demander un devis</button>
+			  </div>
+			</div>
+		</section>
+
+
+		<section class="bg-image d-block d-md-none mb-2" style="background-image: url(/static/images/hyvernal.jpg); height: 80vh; background-size: cover; background-position: center;">
+			<div class="container h-100">
+			  <div class="row h-100 align-items-center">
+				<div class="bg-dark-transparent p-2 rounded">
+				  <h4 class="display-4 text-white text-center" style="font-family: RigelStar; font-size: 5vw;">VEILLE HIVERNALE</h4>
+				  <p class="text-white text-center">Avec ZESTY MARINE vous pouvez laissez votre bateau au port en toute sérénité. Pendant la veille hivernale nous nous occupons des services suivants :</p>
+				<div class="bullet-points t-left" style="color: black;">
+					<p  class="text-white">Aération régulière de votre bateau</p>
+					<p  class="text-white">Système de déshumidification et sa mise à jour</p>
+					<p  class="text-white">Contrôle des vannes et vérification des fonds</p>
+					<p  class="text-white">Contrôle extérieur, préparation du bateau avant votre arrivée</p>
+				</div>
+				<button type="button" class="btn btn-outline-primary t-center" data-toggle="modal" data-target="#exampleModal" data-whatever="Veille Hivernale" >Demander un devis</button>
+			  </div>
+			</div>
+		</section>
+
+
+		<section class="bg-image d-block d-md-none" style="background-image: url(/static/images/ventedeco.jpeg); height: 100vh; background-size: cover; background-position: center;">
+			<div class="container h-100">
+			  <div class="row h-100 align-items-center">
+				<div class="bg-dark-transparent p-2 rounded">
+				  <h4 class="display-4 text-white text-center" style="font-family: RigelStar; font-size: 5vw;">VENTE DE LINGE /DECO</h4>
+				  <p class="text-white text-center">Nous créons pour vous, en collaboration avec des artisans locaux, une décoration sur-mesure pour votre bateau :</p>
+				<div class="bullet-points t-left" style="color: black;">
+					<p  class="text-white">draps</p>
+					<p  class="text-white">taies d’oreillers</p>
+					<p  class="text-white">housses de couettes</p>
+					<p  class="text-white">serviettes de bain</p>
+					<p  class="text-white">peignoirs</p>
+					<p  class="text-white">objets de décoration...</p>
+				</div>
+				<button type="button" class="btn btn-outline-primary t-center" data-toggle="modal" data-target="#exampleModal" data-whatever="Vente de Linge et Deco" >Demander un devis</button>
+			  </div>
+			</div>
+		  </section>
+
 	
 
-		<!-----------------Modal du Formualire de Devis --------------------------->
+<!-----------------Modal du Formualire de Devis ------------------------------------------------------------------------------------>
 		
 	  </section>
 
@@ -246,30 +327,32 @@
 	  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 		  <div class="modal-content">
+			<img src="{% static 'images/logolong.png' %}" width="100"  alt="LOGO" style="margin: 10px; align-self: center;">
 			<div class="modal-body">
+				
 			  <form>
 				<div class="form-group row center">
-					<label class="control-label col-sm-2" for="name">Nom & Prenom:</label>
-					<div class="col-sm-10">
+					<label class="control-label col-sm-3" style="font-family: RigelStar; font-size: 10px;" for="name">Nom & Prenom</label>
+					<div class="col-sm-9">
 					  <input type="email" class="form-control" id="name" placeholder="Entrer votre Nom et Prenom">
 					</div>
 				  </div>
 				  <div class="form-group row">
-					<label class="control-label col-sm-2" for="tel">Tel:</label>
-					<div class="col-sm-10">
+					<label class="control-label col-sm-3" style="font-family: RigelStar; font-size: 10px;" for="tel">Tel</label>
+					<div class="col-sm-9">
 					  <input type="tel" class="form-control" id="tel" placeholder="Entrer votre Numéro de Télephone">
 					</div>
 				  </div>
 
 				  <div class="form-group row">
-					<label class="control-label col-sm-2" for="email">Email:</label>
-					<div class="col-sm-10">
+					<label class="control-label col-sm-3" style="font-family: RigelStar; font-size: 10px;" for="email">Email</label>
+					<div class="col-sm-9">
 					  <input type="email" class="form-control" id="email" placeholder="Entrer votre email">
 					</div>
 				  </div>
 				  <div class="form-group row">
-						<label class="control-label col-sm-2">Pays: </label>
-						<div class="col-md-10">
+						<label style="font-family: RigelStar; font-size: 10px;" class="control-label col-sm-3">Pays</label>
+						<div class="col-md-9">
 							<select id="country" name="country" class="form-control">
 								<option value="" selected disabled>Selectionner votre pays de Résidence</option>
 								<option value="Afghanistan">Afghanistan</option>
@@ -521,14 +604,14 @@
 						
 					</div>
 					<div class="form-group row mt-3">
-						<label class="control-label col-sm-2" for="tel">Objet:</label>
-						<div class="col-sm-10">
+						<label class="control-label col-sm-3" style="font-family: RigelStar; font-size: 10px;" for="tel">Objet</label>
+						<div class="col-sm-9">
 						  <input type="texte" class="form-control" id="object">
 						</div>
 					  </div>
 				
 				<div class="form-group">
-				  <label for="message-text" class="col-form-label">Message:</label>
+				  <label for="message-text" style="font-family: RigelStar; font-size: 10px;" class="col-form-label">Message</label>
 				  <textarea class="form-control" id="message-text"></textarea>
 				</div>
 			  </form>
@@ -558,4 +641,4 @@
 		</div> 
 	</div>
 
-		{% endblock content %}
+	{% endblock content %}

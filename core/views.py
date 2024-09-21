@@ -6,10 +6,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View
 from django.shortcuts import redirect
+from django.core.mail import EmailMessage
+from django.http import JsonResponse
 from django.utils import timezone
 from .forms import CheckoutForm, CouponForm, RefundForm
 from .models import Item, OrderItem, Order, BillingAddress, Payment, Coupon, Refund, Category, Demnde_devis
 from django.http import HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -284,21 +287,40 @@ def remove_from_cart(request, slug):
         return redirect("core:product", slug=slug)
     return redirect("core:product", slug=slug)
 
-
+@csrf_exempt
 def demande_devis(request):
-    name = request.GET.get('name')
-    tel = request.GET.get('tel')
-    email = request.GET.get('email')
-    pays = request.GET.get('pays')
-    objet = request.GET.get('object')
-    msg = request.GET.get('msg')
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        tel = request.POST.get('tel')
+        pays = request.POST.get('pays')
+        email = request.POST.get('email')
+        objet = request.POST.get('objet')
+        msg = request.POST.get('msg')
 
-    try:
-        Demnde_devis.objects.create(name = name, tel = tel, email = email, pays = pays, objet = objet, msg = msg)
-    except:
-        # add a message saying the user dosent have an order
-        messages.info(request, "Nous somme désolé de ne pas pouvoir enregistrer votre demabde de devis pour le moment !")
-    return messages.info("Votre demande  de devis a très bien pris en comptepy, nous vous reviendrons très prochainement !")
+        if (pays == ''):
+            pays = 'Non renseigné'
+
+        if not all([name, tel, email, objet, msg]):
+            return JsonResponse({'error': 'Tous les champs sont requis'}, status=400)
+
+        
+        sendemail = EmailMessage(
+            subject=f'Demande de Devis au nom de {name}',
+            body=f"Bonjour, \n\nVous avez reçu une nouvelle demande de devis. \nSon Pays: {pays} \nSon nom: {name} \nSon Tél: {tel} \nSon mail: {email} \nSon Message: {msg} \n\n \n Fin!! ",
+            from_email='commande@zesty-marine.com',
+            to=['direction-zestymarine@outlook.com', 'mansourdiop0011@gmail.com'],
+        )
+        sendemail.send()  
+        
+
+        try:
+            Demnde_devis.objects.create(name=name, tel=tel, email=email, objet=objet, msg=msg)
+            return JsonResponse({'success': 'Demande de devis créée avec succès'})
+        except Exception as e:
+            return JsonResponse({'error': f'Une erreur est survenue: {str(e)}'}, status=500)
+    else:
+        return JsonResponse({'error': 'Méthode de requête non autorisée'}, status=405)
+
 
 @login_required
 def remove_single_item_from_cart(request, slug):

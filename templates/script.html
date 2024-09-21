@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Do nothing, already on the services page
       } else if (currentPage === '/' || currentPage === '') {
         link.setAttribute('href', 'services/' + href);
+      } else if (currentPage === '/' || currentPage === '' && href =='#charpente') {
+        link.setAttribute('href', 'constmetallique/' + href);  
       } else if (currentPage === '/boutique/'){
         link.setAttributeNS ('href', 'services/')
       }
@@ -104,10 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   $('#envoyer').click( function () {
     nom_complet = $('#name').val()
-    tel = $('#tel').val();
-    email = $('#email').val();
+    tel = $('#email').val();
+    email = $('#tel').val();
     pays = $('#country').val();
-    object = $('object').val();
+    object = $('#object').val();
     msg = $('#message-text').val();
     if (nom_complet == ""){
       alert('Veuiller entrer votre nom');
@@ -115,8 +117,9 @@ document.addEventListener('DOMContentLoaded', function() {
       alert('Veuillez renseigner votre email et/ou votre numéro de Téléphone');
     }else {
       console.log("Boutton clicked" + nom_complet);
+      console.log("Le pays" + pays);
       $("#exampleModal").modal('hide');
-      sendToServer(nom_complet, tel, email, pays, object, msg);
+      sendToServer(nom_complet, tel, email,pays, object, msg);
       $("#statusSuccessModal").modal('show');
     }
     
@@ -124,19 +127,48 @@ document.addEventListener('DOMContentLoaded', function() {
     
 });
 
-function sendToServer(name, email, tel, pays, object, msg){
-			console.log(name);
+
+
+
+
+function sendToServer(name, email, tel,pays, object, msg){
+			
+      $.ajaxSetup({ 
+      beforeSend: function(xhr, settings) {
+         function getCookie(name) {
+             var cookieValue = null;
+             if (document.cookie && document.cookie != '') {
+                 var cookies = document.cookie.split(';');
+                 for (var i = 0; i < cookies.length; i++) {
+                     var cookie = jQuery.trim(cookies[i]);
+                     // Does this cookie string begin with the name we want?
+                     if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                         break;
+                     }
+                 }
+             }
+             return cookieValue;
+         }
+         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+             // Only send the token to relative URLs i.e. locally.
+             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+         }
+     } 
+});
+
 			
 			$.ajax({
-				url:"demande_devis",
+				url:"{% url 'core:demande_devis' %}",
 				type:"POST",
-				data:{name:nom_complet, email:email, tel:tel, pays:pays, objet:object, msg:msg },
+				data:{name:nom_complet, email:email, tel:tel,pays:pays, objet:object, msg:msg },
 			})
 			.done(function(response){
 				console.log(response)
 			})
-			.fail(function(){
+			.fail(function(response){
 				console.log("Erreur du server");
+        console.log(response);
 			})
 		};
 

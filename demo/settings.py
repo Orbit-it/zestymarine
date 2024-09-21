@@ -2,10 +2,18 @@ import os
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
-DEBUG = True
+DEBUG = False
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
-ALLOWED_HOSTS = ['ec2-13-49-66-47.eu-north-1.compute.amazonaws.com', 'https://ec2-13-49-66-47.eu-north-1.compute.amazonaws.com']
+ALLOWED_HOSTS = ['*']
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'ssl0.ovh.net'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'admin@zesty-marine.com'
+EMAIL_HOST_PASSWORD = 'Mathias2024!!'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -33,6 +41,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware'
+
 ]
 
 ROOT_URLCONF = 'demo.urls'
